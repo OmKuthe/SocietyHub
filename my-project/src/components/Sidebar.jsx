@@ -7,7 +7,9 @@ import {
   Users,
   Home,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  FileText,
+  Building2
 } from "lucide-react";
 import { useState } from "react";
 

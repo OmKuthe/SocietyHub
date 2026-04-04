@@ -29,7 +29,7 @@ const values = [
 
 export default function About() {
   return (
-    <section id="about" className="py-24 bg-gradient-to-b from-slate-900 to-slate-800">
+    <section id="about" className="py-24 bg-white">
       <div className="container mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -38,16 +38,16 @@ export default function About() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
             About SocietyHub
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We're on a mission to revolutionize how residential societies operate, 
             making community living seamless, transparent, and enjoyable for everyone.
           </p>
         </motion.div>
 
-        {/* Stats Grid */}
+        {/* Stats Grid - Light Theme */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
           {stats.map((stat, idx) => {
             const Icon = stat.icon;
@@ -58,19 +58,21 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10"
+                className="text-center p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-lg transition-all duration-300"
               >
-                <Icon className="w-8 h-8 text-blue-400 mx-auto mb-3" />
-                <div className="text-2xl md:text-3xl font-bold text-white mb-1">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <Icon className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-2xl md:text-3xl font-bold text-gray-800 mb-1">
                   {stat.value}
                 </div>
-                <div className="text-sm text-white/60">{stat.label}</div>
+                <div className="text-sm text-gray-500">{stat.label}</div>
               </motion.div>
             );
           })}
         </div>
 
-        {/* Values Section */}
+        {/* Values Section - Light Theme */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           {values.map((value, idx) => {
             const Icon = value.icon;
@@ -81,30 +83,30 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="text-center p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300"
+                className="text-center p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-md">
                   <Icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">{value.title}</h3>
-                <p className="text-white/60">{value.description}</p>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">{value.title}</h3>
+                <p className="text-gray-600">{value.description}</p>
               </motion.div>
             );
           })}
         </div>
 
-        {/* Mission Statement */}
+        {/* Mission Statement - Light Theme */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 to-purple-600 p-1"
+          className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 to-purple-600 p-1 shadow-xl"
         >
-          <div className="relative bg-slate-900 rounded-3xl p-12 text-center">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+          <div className="relative bg-white rounded-3xl p-12 text-center">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
               Our Mission
             </h3>
-            <p className="text-lg text-white/80 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               To empower residential societies with cutting-edge technology that simplifies 
               management, enhances security, and fosters genuine community connections.
             </p>

@@ -13,15 +13,15 @@ import {
   X,
   ArrowRight
 } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 import About from "../components/About";
 import Contact from "../components/Contact";
+import Byelaws from "../components/Byelaws";
 
 export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,10 +79,10 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
-      {/* Navigation */}
+    <div className="min-h-screen bg-white">
+      {/* Navigation - Light Theme */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-slate-900/95 backdrop-blur-md shadow-lg" : "bg-transparent"
+        scrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-white/80 backdrop-blur-sm"
       }`}>
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
@@ -91,17 +91,18 @@ export default function LandingPage() {
               <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
                 <span className="text-white font-bold text-xl">SH</span>
               </div>
-              <span className="text-xl font-bold text-white">
+              <span className="text-xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
                 SocietyHub
               </span>
             </div>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-8">
-              <button onClick={() => scrollToSection("hero")} className="text-white/80 hover:text-white transition-colors">Home</button>
-              <button onClick={() => scrollToSection("about")} className="text-white/80 hover:text-white transition-colors">About</button>
-              <button onClick={() => scrollToSection("features")} className="text-white/80 hover:text-white transition-colors">Features</button>
-              <button onClick={() => scrollToSection("contact")} className="text-white/80 hover:text-white transition-colors">Contact</button>
+              <button onClick={() => scrollToSection("hero")} className="text-gray-600 hover:text-gray-900 transition-colors">Home</button>
+              <button onClick={() => scrollToSection("about")} className="text-gray-600 hover:text-gray-900 transition-colors">About</button>
+              <button onClick={() => scrollToSection("features")} className="text-gray-600 hover:text-gray-900 transition-colors">Features</button>
+              <button onClick={() => scrollToSection("byelaws")} className="text-gray-600 hover:text-gray-900 transition-colors">Bye-laws</button>
+              <button onClick={() => scrollToSection("contact")} className="text-gray-600 hover:text-gray-900 transition-colors">Contact</button>
               <Link 
                 to="/dashboard" 
                 className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300"
@@ -113,23 +114,24 @@ export default function LandingPage() {
             {/* Mobile Menu Button */}
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-white"
+              className="md:hidden p-2 text-gray-600"
             >
               {mobileMenuOpen ? <X /> : <Menu />}
             </button>
           </div>
 
-          {/* Mobile Menu */}
+          {/* Mobile Menu - Light Theme */}
           {mobileMenuOpen && (
             <motion.div 
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               className="md:hidden mt-4 pb-4 flex flex-col gap-3"
             >
-              <button onClick={() => scrollToSection("hero")} className="text-white/80 hover:text-white py-2 text-left">Home</button>
-              <button onClick={() => scrollToSection("about")} className="text-white/80 hover:text-white py-2 text-left">About</button>
-              <button onClick={() => scrollToSection("features")} className="text-white/80 hover:text-white py-2 text-left">Features</button>
-              <button onClick={() => scrollToSection("contact")} className="text-white/80 hover:text-white py-2 text-left">Contact</button>
+              <button onClick={() => scrollToSection("hero")} className="text-gray-600 hover:text-gray-900 py-2 text-left">Home</button>
+              <button onClick={() => scrollToSection("about")} className="text-gray-600 hover:text-gray-900 py-2 text-left">About</button>
+              <button onClick={() => scrollToSection("features")} className="text-gray-600 hover:text-gray-900 py-2 text-left">Features</button>
+              <button onClick={() => scrollToSection("byelaws")} className="text-gray-600 hover:text-gray-900 py-2 text-left">Bye-laws</button>
+              <button onClick={() => scrollToSection("contact")} className="text-gray-600 hover:text-gray-900 py-2 text-left">Contact</button>
               <Link to="/dashboard" className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold text-center">
                 Get Started
               </Link>
@@ -146,15 +148,15 @@ export default function LandingPage() {
       {/* About Section */}
       <About />
 
-      {/* Features Section */}
-      <section id="features" className="py-24 bg-slate-800">
+      {/* Features Section - Light Theme */}
+      <section id="features" className="py-24 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-bold text-white mb-4"
+              className="text-4xl md:text-5xl font-bold text-gray-800 mb-4"
             >
               Everything You Need
             </motion.h2>
@@ -163,7 +165,7 @@ export default function LandingPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-xl text-white/70 max-w-2xl mx-auto"
+              className="text-xl text-gray-600 max-w-2xl mx-auto"
             >
               Powerful tools to streamline operations, enhance communication, 
               and build a stronger community
@@ -180,13 +182,13 @@ export default function LandingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:transform hover:-translate-y-2"
+                  className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-2 border border-gray-100"
                 >
-                  <div className={`bg-gradient-to-br ${feature.color} w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`bg-gradient-to-br ${feature.color} w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                     <Icon className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-3">{feature.title}</h3>
-                  <p className="text-white/60">{feature.description}</p>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">{feature.title}</h3>
+                  <p className="text-gray-600">{feature.description}</p>
                 </motion.div>
               );
             })}
@@ -194,11 +196,14 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Bye-laws Section - Light Theme */}
+      <Byelaws />
+
       {/* Contact Section */}
       <Contact />
 
-      {/* Footer */}
-      <footer className="bg-slate-900 border-t border-white/10 py-12">
+      {/* Footer - Light Theme */}
+      <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
@@ -206,31 +211,32 @@ export default function LandingPage() {
                 <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg"></div>
                 <span className="text-xl font-bold text-white">SocietyHub</span>
               </div>
-              <p className="text-white/60">Making community living better, one society at a time.</p>
+              <p className="text-gray-400">Making community living better, one society at a time.</p>
             </div>
             <div>
               <h4 className="font-semibold text-white mb-4">Product</h4>
-              <ul className="space-y-2 text-white/60">
+              <ul className="space-y-2 text-gray-400">
                 <li><button onClick={() => scrollToSection("features")} className="hover:text-white transition-colors">Features</button></li>
                 <li><Link to="/dashboard" className="hover:text-white transition-colors">Dashboard</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold text-white mb-4">Company</h4>
-              <ul className="space-y-2 text-white/60">
+              <ul className="space-y-2 text-gray-400">
                 <li><button onClick={() => scrollToSection("about")} className="hover:text-white transition-colors">About</button></li>
                 <li><button onClick={() => scrollToSection("contact")} className="hover:text-white transition-colors">Contact</button></li>
+                <li><button onClick={() => scrollToSection("byelaws")} className="hover:text-white transition-colors">Bye-laws</button></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold text-white mb-4">Legal</h4>
-              <ul className="space-y-2 text-white/60">
+              <ul className="space-y-2 text-gray-400">
                 <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-white/10 pt-8 text-center text-white/60">
+          <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
             <p>&copy; 2024 SocietyHub. All rights reserved.</p>
           </div>
         </div>

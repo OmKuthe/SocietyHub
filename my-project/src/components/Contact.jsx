@@ -24,29 +24,37 @@ export default function Contact() {
       title: "Phone",
       details: ["+91 98765 43210", "+91 98765 43211"],
       color: "from-blue-500 to-cyan-500",
+      bgColor: "bg-blue-50",
+      textColor: "text-blue-600",
     },
     {
       icon: Mail,
       title: "Email",
       details: ["support@societyhub.com", "sales@societyhub.com"],
       color: "from-purple-500 to-pink-500",
+      bgColor: "bg-purple-50",
+      textColor: "text-purple-600",
     },
     {
       icon: MapPin,
       title: "Office",
       details: ["123 Tech Park, Bangalore", "Karnataka, India - 560001"],
       color: "from-emerald-500 to-teal-500",
+      bgColor: "bg-emerald-50",
+      textColor: "text-emerald-600",
     },
     {
       icon: Clock,
       title: "Support Hours",
       details: ["Monday - Friday: 9AM - 8PM", "Saturday: 10AM - 5PM"],
       color: "from-orange-500 to-red-500",
+      bgColor: "bg-orange-50",
+      textColor: "text-orange-600",
     },
   ];
 
   return (
-    <section id="contact" className="py-24 bg-slate-900">
+    <section id="contact" className="py-24 bg-gray-50">
       <div className="container mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -55,65 +63,65 @@ export default function Contact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
             Get In Touch
           </h2>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Have questions? We'd love to hear from you. Send us a message and 
             we'll respond as soon as possible.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          {/* Contact Form - Light Theme */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+            className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100"
           >
-            <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
+            <h3 className="text-2xl font-bold text-gray-800 mb-6">Send a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label className="block text-white/70 mb-2 text-sm">Full Name</label>
+                <label className="block text-gray-700 mb-2 text-sm font-medium">Full Name</label>
                 <input
                   type="text"
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   placeholder="John Doe"
                 />
               </div>
               <div>
-                <label className="block text-white/70 mb-2 text-sm">Email Address</label>
+                <label className="block text-gray-700 mb-2 text-sm font-medium">Email Address</label>
                 <input
                   type="email"
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   placeholder="john@example.com"
                 />
               </div>
               <div>
-                <label className="block text-white/70 mb-2 text-sm">Phone Number</label>
+                <label className="block text-gray-700 mb-2 text-sm font-medium">Phone Number</label>
                 <input
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   placeholder="+91 98765 43210"
                 />
               </div>
               <div>
-                <label className="block text-white/70 mb-2 text-sm">Message</label>
+                <label className="block text-gray-700 mb-2 text-sm font-medium">Message</label>
                 <textarea
                   rows={4}
                   required
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-all"
                   placeholder="Tell us about your requirements..."
                 />
               </div>
@@ -129,7 +137,7 @@ export default function Contact() {
             </form>
           </motion.div>
 
-          {/* Contact Info */}
+          {/* Contact Info - Light Theme */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -145,16 +153,16 @@ export default function Contact() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300"
+                  className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex items-start gap-4">
-                    <div className={`p-3 rounded-xl bg-gradient-to-br ${info.color}`}>
+                    <div className={`p-3 rounded-xl bg-gradient-to-br ${info.color} shadow-md`}>
                       <Icon className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-white mb-2">{info.title}</h3>
+                      <h3 className="text-lg font-semibold text-gray-800 mb-2">{info.title}</h3>
                       {info.details.map((detail, i) => (
-                        <p key={i} className="text-white/60">{detail}</p>
+                        <p key={i} className="text-gray-600">{detail}</p>
                       ))}
                     </div>
                   </div>
@@ -162,14 +170,33 @@ export default function Contact() {
               );
             })}
 
-            {/* Live Chat Button */}
+            {/* Live Chat Button - Light Theme */}
             <motion.button
               whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               className="w-full py-4 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-2xl font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2"
             >
               <MessageSquare className="w-5 h-5" />
               Start Live Chat
             </motion.button>
+
+            {/* Additional Info Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-6 border border-blue-100"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <Clock className="w-5 h-5 text-blue-600" />
+                <h3 className="font-semibold text-gray-800">Quick Response</h3>
+              </div>
+              <p className="text-gray-600 text-sm">
+                We typically respond within 24 hours during business days. 
+                For urgent inquiries, please call our support line.
+              </p>
+            </motion.div>
           </motion.div>
         </div>
       </div>

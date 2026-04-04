@@ -20,7 +20,8 @@ import {
   CreditCard,
   MessageSquare,
   Megaphone,
-  Users
+  Users,
+  FileText
 } from "lucide-react";
 
 export default function Navbar() {
@@ -53,6 +54,8 @@ export default function Navbar() {
         return "My Profile";
       case "/settings":
         return "Settings";
+      case "/byelaws":
+      return "Bye-Laws";
       default:
         return "Dashboard";
     }
@@ -73,6 +76,8 @@ export default function Navbar() {
         return <Megaphone className="w-5 h-5 text-orange-500" />;
       case "/visitors":
         return <Users className="w-5 h-5 text-pink-500" />;
+      case "/byelaws":
+        return <FileText className="w-5 h-5 text-indigo-500" />;
       default:
         return <LayoutDashboard className="w-5 h-5 text-blue-500" />;
     }
@@ -93,6 +98,8 @@ export default function Navbar() {
         return "View and manage society announcements";
       case "/visitors":
         return "Manage visitor entries and approvals";
+      case "/byelaws":
+        return "View society rules, policies, and compliance guidelines";
       default:
         return "Welcome back, John • Here's your society overview";
     }
@@ -384,7 +391,7 @@ export default function Navbar() {
             <Link to="/complaints" className="block py-2 text-gray-700 hover:text-blue-600" onClick={() => setIsMobileMenuOpen(false)}>Complaints</Link>
             <Link to="/notices" className="block py-2 text-gray-700 hover:text-blue-600" onClick={() => setIsMobileMenuOpen(false)}>Notices</Link>
             <Link to="/visitors" className="block py-2 text-gray-700 hover:text-blue-600" onClick={() => setIsMobileMenuOpen(false)}>Visitors</Link>
-          </div>
+            </div>
         )}
       </div>
     </nav>
